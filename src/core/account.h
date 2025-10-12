@@ -1,26 +1,38 @@
+// account.h
+// OS Concepts: Thread Synchronization, Mutual Exclusion, Critical Sections
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
-#include <vector>
+#include <mutex>
 #include <string>
+
 using namespace std;
 
-class Account
-{
+class Account {
 private:
-    int account_id;
+    int id;
     double balance;
-    vector<string> transaction_history;
+    mutex lock;  // OS Concept: Mutex for thread-safe operations
 
 public:
-    Account(int id, double initial_balance);
+    // Constructor
+    Account(int accountId, double initialBalance);
+
+    // Getters
+    int getId() const;
+    double getBalance() const;
+
+    // Thread-safe transaction methods
+    // OS Concept: Critical Section Protection
     bool deposit(double amount);
     bool withdraw(double amount);
-    bool transfer_to(Account &target_account, double amount);
-    double get_balance();
-    int get_account_id();
-    void add_to_history(const string &transaction);
-    void print_transaction_history();
+    bool transfer(Account& toAccount, double amount);
+
+    // Display account information
+    string toString() const;
+
+    // Allow mutex access for advanced locking strategies
+    mutex& getMutex();
 };
 
-#endif
+#endif // ACCOUNT_H

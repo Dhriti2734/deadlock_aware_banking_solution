@@ -36,3 +36,5 @@
 [2025-10-12 19:57:15.066] Thread-3 | TRANSFER | From Account-1 To Account-3 | Amount: $300.00 | Status: SUCCESS
 [2025-10-12 19:57:15.129] Thread-4 | DEPOSIT | Account-3 | Amount: $750.00 | Status: SUCCESS
 [2025-10-12 19:57:15.191] Thread-5 | TRANSFER | From Account-2 To Account-4 | Amount: $200.00 | Status: SUCCESS
+[2025-10-12 22:59:36.305] === Banking System Started ===
+[2025-10-12 23:00:01.310] Thread-1 | DEPOSIT | Account-4 | Amount: $20000.00 | Status: SUCCESS

@@ -1,0 +1,112 @@
+========================================
+QUICK START GUIDE
+Deadlock Aware Banking System
+========================================
+
+🚀 GET RUNNING IN 3 STEPS:
+
+STEP 1: BUILD
+-------------
+Open Command Prompt in project folder and run:
+----------------------------------------------------------------------------------------------------------------------------------------------------
+    g++ -std=c++17 -O2 -c Account.cpp Transaction.cpp Logger.cpp DeadlockHandler.cpp Scheduler.cpp TransactionManager.cpp BankingSystem.cpp main.cpp
+g++ -o BankingSystem.exe Account.o Transaction.o Logger.o DeadlockHandler.o Scheduler.o TransactionManager.o BankingSystem.o main.o -pthread
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+STEP 2: RUN
+-------------------------
+    ./BankingSystem.exe
+-------------------------
+
+STEP 3: TRY IT
+--------------
+From the menu, try these options:
+
+[Quick Demo Path]
+5 → 2  (Deadlock Demo → Mode 2: Shows prevention)
+4      (Concurrent Test → 5 random transfers)
+8      (View Log → See all transactions)
+9      (Exit)
+
+========================================
+WANT TO SEE A REAL DEADLOCK?
+========================================
+
+⚠️ WARNING: This will freeze your console!
+
+From menu:
+5 → 1  (Deadlock Demo → Mode 1: Naive Locking)
+
+The program will freeze. This is INTENTIONAL!
+Press Ctrl+C to force terminate.
+
+Then run again and try:
+5 → 2  (Mode 2: Same scenario, but prevented!)
+
+========================================
+MENU OPTIONS EXPLAINED
+========================================
+
+1. Deposit         → Add money to an account
+2. Withdraw        → Remove money from account  
+3. Manual Transfer → Move money between accounts
+4. Concurrent Test → Auto-run 5 random transfers
+5. Deadlock Demo   → See deadlock prevention in action
+6. Change Policy   → Switch FCFS ↔ Priority scheduler
+7. Retry Failed    → Reprocess transactions that waited
+8. View Log        → See all transaction history
+9. Exit           → Close program
+
+========================================
+TESTING SCENARIOS
+========================================
+
+Scenario A: Manual Transfer
+----------------------------
+3 → 101 → 102 → 200
+(Transfer $200 from account 101 to 102)
+
+Scenario B: Priority Scheduling
+-------------------------------
+6 → 2    (Switch to Priority)
+4        (Run concurrent test)
+(Watch high-priority transactions execute first!)
+
+Scenario C: See Aging in Action
+--------------------------------
+6 → 2    (Switch to Priority)  
+4        (Run concurrent test)
+(Low-priority transactions get boosted after 5 seconds)
+
+========================================
+FILES CREATED
+========================================
+
+After running:
+- transaction_log.txt (All transaction records)
+
+========================================
+TROUBLESHOOTING
+========================================
+
+Problem: "g++ not recognized"
+Solution: Install MinGW and add to PATH
+
+Problem: Build errors
+Solution: Make sure ALL files are in same folder:
+  ✓ 8 .cpp files
+  ✓ 7 .h files  
+  ✓ build.bat
+
+Problem: Program won't run
+Solution: Make sure BankingSystem.exe was created
+
+========================================
+NEED MORE HELP?
+========================================
+
+See:
+- README.md (Full documentation)
+- COMPILATION_GUIDE.txt (Detailed build instructions)
+
+========================================
